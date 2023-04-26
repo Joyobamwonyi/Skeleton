@@ -21,7 +21,7 @@
         </p>
         <asp:Label ID="lblPostalCode" runat="server" style="z-index: 1; left: 10px; top: 99px; position: absolute" Text="PostalCode" width="108px"></asp:Label>
         <asp:Label ID="lblExparationDate" runat="server" style="z-index: 1; left: 10px; position: absolute; width: 108px; top: 129px; bottom: 520px" Text="Exparation Date"></asp:Label>
-        <asp:TextBox ID="txtExparationDate" runat="server" height="24px" style="z-index: 1; left: 121px; top: 129px; position: absolute" width="145px"></asp:TextBox>
+        <asp:TextBox ID="txtExparationDate" runat="server" height="24px" style="z-index: 1; left: 121px; top: 129px; position: absolute; right: 276px;" width="145px"></asp:TextBox>
         <p>
             <asp:Label ID="lblCvv" runat="server" style="z-index: 1; left: 10px; top: 168px; position: absolute" Text="Cvv" width="108px"></asp:Label>
             <asp:TextBox ID="txtCvv" runat="server" height="24px" style="z-index: 1; left: 121px; top: 166px; position: absolute" width="145px"></asp:TextBox>

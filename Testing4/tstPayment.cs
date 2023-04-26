@@ -25,20 +25,20 @@ namespace Testing4
 
         }
         [TestMethod]
-        public void ExpiredDatePropertyOK()
+        public void ExparationDatePropertyOK()
         {
             clsPayment AnPayment = new clsPayment();
             DateTime TestData = DateTime.Now.Date;
-            AnPayment.ExpiredDate = TestData;
-            Assert.AreEqual(AnPayment.ExpiredDate, TestData);
+            AnPayment.ExparationDate = TestData;
+            Assert.AreEqual(AnPayment.ExparationDate, TestData);
         }
         [TestMethod]
-        public void BillingAddressPropertyOK()
+        public void PostalCodePropertyOK()
         {
             clsPayment AnPayment = new clsPayment();
             String TestData = "";
-            AnPayment.BillingAddress = TestData;
-            Assert.AreEqual(AnPayment.BillingAddress, TestData);
+            AnPayment.PostalCode = TestData;
+            Assert.AreEqual(AnPayment.PostalCode, TestData);
         }
 
         [TestMethod]
