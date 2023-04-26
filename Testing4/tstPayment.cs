@@ -74,6 +74,18 @@ namespace Testing4
             AnPayment.NameOnCard = TestData;
             Assert.AreEqual(AnPayment.NameOnCard, TestData);
         }
+        [TestMethod]
+        public void FindMethodOK()
+        {
+            clsPayment AnPayment = new clsPayment();
+            Boolean Found = false;
+            Int32 id = 1;
+            Found = AnPayment.Find(id);
+            Assert.IsTrue(Found);
+
+
+        }
+
 
 
     }
