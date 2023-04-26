@@ -67,12 +67,12 @@ namespace Testing4
         }
 
         [TestMethod]
-        public void FullNamePropertyOK()
+        public void NameOnCardPropertyOK()
         {
             clsPayment AnPayment = new clsPayment();
             String TestData = "";
-            AnPayment.FullName = TestData;
-            Assert.AreEqual(AnPayment.FullName, TestData);
+            AnPayment.NameOnCard = TestData;
+            Assert.AreEqual(AnPayment.NameOnCard, TestData);
         }
 
 

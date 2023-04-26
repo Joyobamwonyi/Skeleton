@@ -9,9 +9,10 @@ namespace ClassLibrary
         public int customerName;
 
         public bool Active { get; set; }
-        public DateTime ExpiredDate { get; set; }
-        public DateTime DateAdded { get; set; }
-        public String BillingAddress { get; set; }
-        public string FullName { get; set; }
+        public DateTime ExparationDate { get; set; }
+        public string NameOnCard { get; set; }
+        public int CardNumber { get; set; }
+        public int Cvv { get; set; }
+        public string PostalCode { get; set; }
     }
 }
