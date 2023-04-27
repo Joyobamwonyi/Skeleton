@@ -51,11 +51,11 @@ public partial class _1_DataEntry : System.Web.UI.Page
         if (Found == true) ;
         {
             //display the values of the properties in the form
-            txtStaffNo.Text = AnStaff.StaffNo;
+            txtStaffNo.Text = AnStaff.StaffNo.ToString(); ;
             txtFirstName.Text = AnStaff.FirstName;
             txtSurname.Text = AnStaff.Surname;
-            txtBirthday.Text = AnStaff.Birthday.DateAdded.ToString();
-            txtSalary.Text = AnStaff.Salary;
+            txtBirthday.Text = AnStaff.Birthday.ToString();
+            txtSalary.Text = AnStaff.Salary.ToString(); ;
             chkAvailable.Checked = AnStaff.Available;
         }
     }
