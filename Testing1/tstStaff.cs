@@ -102,7 +102,7 @@ namespace Testing1
             //Boollean variable to store the results of the validation
             Boolean Found = false;
             //create some test data to use within the method
-            Int32 StaffNo= 21;
+            Int32 StaffNo= 3;
             //invoke the method
             Found = AnStaff.Find(StaffNo);
             //test to see if the result is true
@@ -119,11 +119,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 1;
             //invoke the method
             Found = AnStaff.Find(StaffNo);
             //check the staff no
-            if (AnStaff.StaffNo != 21)
+            if (AnStaff.StaffNo != 1)
             {
                 OK = false;
             }
@@ -141,11 +141,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 2;
             //invoke the method
             Found = AnStaff.Find(StaffNo);
             //check the property
-            if (AnStaff.FirstName != "Firstname")
+            if (AnStaff.FirstName != "Karla")
             {
                 OK = false;
             }
@@ -163,11 +163,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 4;
             //invoke the method
             Found = AnStaff.Find(StaffNo);
             //check the property
-            if (AnStaff.Surname != "Surname")
+            if (AnStaff.Surname != "Hails")
             {
                 OK = false;
             }
@@ -185,11 +185,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 1;
             //invoke the method
             Found = AnStaff.Find(StaffNo);
             //check the property
-            if (AnStaff.Birthday !=Convert.ToDateTime("16/09/2000"))
+            if (AnStaff.Birthday !=Convert.ToDateTime("11/05/2000"))
             {
                 OK = false;
             }
@@ -207,11 +207,11 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 2;
             //invoke the method
             Found = AnStaff.Find(StaffNo);
             //check the property
-            if (AnStaff.Salary != 1)
+            if (AnStaff.Salary != 2200)
             {
                 OK = false;
             }
@@ -229,7 +229,7 @@ namespace Testing1
             //boolean variable to record if data is OK (assume it is)
             Boolean OK = true;
             //create some test data to use with the method
-            Int32 StaffNo = 21;
+            Int32 StaffNo = 4;
             //invoke the method
             Found = AnStaff.Find(StaffNo);
             //check the property
