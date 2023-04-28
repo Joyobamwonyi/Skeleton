@@ -129,7 +129,7 @@ namespace ClassLibrary
             }
         }
 
-        public string Valid(string firstName, string surname, string birthday, string salary)
+        public string Valid(string firstName,string birthday, string surname,string salary)
         {
             //create a string variable to store the error
             String Error = "";
@@ -147,18 +147,6 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The first name must be less than 9 characters : ";
             }
-            //if the surname is blank
-            if (surname.Length == 0)
-            {
-                //record the error
-                Error = Error + "The surname may not be blank : ";
-            }
-            //if the first name is greater than 9 chracters
-            if (surname.Length > 9)
-            {
-                //record the error
-                Error = Error + "The surname must be less than 9 characters : ";
-            }
             try
             {
                 //copy the birthday value to the dateTemp variable
@@ -168,11 +156,28 @@ namespace ClassLibrary
                     //record the error
                     Error = Error + "The date can not be in the future : ";
                 }
+                if (DateTemp == DateTime.Now.Date)
+                {
+                    //record the error
+                    Error = Error + "The date can not be now : ";
+                }
             }
             catch
             {
                 //return the error
                 Error = Error + "The date was not a valid date : ";
+            }
+            //if the surname is blank
+            if (surname.Length == 0)
+            {
+                //record the error
+                Error = Error + "The surname may not be blank : ";
+            }
+            //if the surname is greater than 9 chracters
+            if (surname.Length > 9)
+            {
+                //record the error
+                Error = Error + "The surname must be less than 9 characters : ";
             }
             //if the salary is blank
             if (salary.Length == 0)
@@ -180,12 +185,14 @@ namespace ClassLibrary
                 //record the error
                 Error = Error + "The salary may not be blank : ";
             }
-            //if the first name is greater than 9 chracters
+            //if the salary is greater than 9 chracters
             if (salary.Length > 9)
             {
                 //record the error
                 Error = Error + "The salary must be less than 9 characters : ";
             }
+            //return any error message
+            return Error;
         }
     }
 }
