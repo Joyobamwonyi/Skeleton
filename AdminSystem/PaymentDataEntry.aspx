@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <p>
-            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="lblNameOnCard" runat="server" style="z-index: 1; left: 11px; top: 22px; position: absolute" Text="Name on Card" width="108px"></asp:Label>
+            &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:Label ID="lblNameOnCard" runat="server" style="z-index: 1; left: 8px; top: 21px; position: absolute" Text="Name on Card" width="108px"></asp:Label>
         </p>
         <p>
             <asp:Label ID="lblCardNumber" runat="server" style="z-index: 1; left: 10px; top: 62px; position: absolute" Text="Card Number" width="108px"></asp:Label>
@@ -26,11 +26,28 @@
             <asp:Label ID="lblCvv" runat="server" style="z-index: 1; left: 10px; top: 168px; position: absolute" Text="Cvv" width="108px"></asp:Label>
             <asp:TextBox ID="txtCvv" runat="server" height="24px" style="z-index: 1; left: 121px; top: 166px; position: absolute" width="145px"></asp:TextBox>
         </p>
-        <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 13px; top: 198px; position: absolute" Text="Save payment details" />
+        <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 17px; top: 210px; position: absolute" Text="Save payment details" />
         <p>
-            <asp:Button ID="btnPay" runat="server" OnClick="Button1_Click1" style="z-index: 1; left: 19px; top: 258px; position: absolute" Text="Pay Now" />
+            &nbsp;</p>
+        <p>
+            &nbsp;</p>
+        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 27px; top: 254px; position: absolute; height: 15px; width: 43px;" Text="lbError"></asp:Label>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:Label ID="lblPymNo" runat="server" Text="PaymentNumber"></asp:Label>
+&nbsp;&nbsp;
         </p>
-        <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 224px; position: absolute" Text="lbError"></asp:Label>
+        <p>
+            <asp:Button ID="btnPay" runat="server" OnClick="btnPay_Click" style="z-index: 1; left: 35px; top: 282px; position: absolute" Text="Pay Now"  />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnFind" runat="server" Height="24px" OnClick="btnFind_Click" style="margin-left: 34px" Text="Find" Width="62px" />
+        </p>
+        <p>
+            &nbsp;</p>
+        <p>
+            <asp:TextBox ID="txtPymNo" runat="server" Height="21px" OnTextChanged="TextBox1_TextChanged2" style="margin-left: 3px" Width="128px"></asp:TextBox>
+        </p>
     </form>
 </body>
 </html>
