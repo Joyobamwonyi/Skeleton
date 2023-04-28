@@ -17,24 +17,39 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
         //create a new instance of clsStaff
         clsStaff AnStaff = new clsStaff();
-        //capture the Staff number
-        AnStaff.StaffNo = Convert.ToInt32(txtStaffNo.Text);
         //capture the First name
-        AnStaff.FirstName = txtFirstName.Text;
+        string FirstName = txtFirstName.Text;
         //capture the Surname
-        AnStaff.Surname = txtSurname.Text;
+        string Surname = txtSurname.Text;
         //set the birthday property
-        AnStaff.Birthday = Convert.ToDateTime(txtBirthday.Text);
+        string Birthday = txtBirthday.Text;
         //set the salary property
-        AnStaff.Salary = Convert.ToInt32(txtSalary.Text);
-        //set the checkbox available property
-        AnStaff.Available = chkAvailable.Checked;
-        //store the staff in the session object
-        Session["AnStaff"] = AnStaff;
-        //navigate to the viewer page
-        Response.Redirect("StaffViewer.aspx");
+        string Salary = txtSalary.Text;
+        //variable to store any error message
+        string Error = "";
+        //validate the data
+        Error = AnStaff.Valid(FirstName, Surname, Birthday, Salary);
+        if (Error == "")
+        {
+            //capture the first name
+            AnStaff.FirstName = FirstName;
+            //capture the surname
+            AnStaff.Surname = Surname;
+            //capture the birthday
+            AnStaff.Birthday = Convert.ToDateTime(Birthday);
+            //capture the salary
+            AnStaff.Salary = Convert.ToInt32(Salary);
+            //store the staff in the session object
+            Session["AnStaff"] = AnStaff;
+            //redirect to the viewer page
+            Response.Write("StaffViewer.aspx");
+        }
+        else
+        {
+            //display the error message
+            lblError.Text = Error;
+        }
     }
-
     protected void btnFind_Click(object sender, EventArgs e)
     {
         //create an instance of the of the staff class
