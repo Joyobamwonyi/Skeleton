@@ -40,4 +40,28 @@ public partial class _1_DataEntry : System.Web.UI.Page
     {
 
     }
+
+    protected void btnFind_Click(object sender, EventArgs e)
+    {
+        // creat an instance of the order class
+        clsOrder AnOrder = new clsOrder();
+        // variable to store the primary key
+        Int32 OrderID;
+        // variable to store the result of the find operation
+        Boolean Found = false;
+        // get the primary key entered by the user
+        OrderID = Convert.ToInt32(txtOrderID.Text);
+        // find the record
+        Found = AnOrder.Find(OrderID);
+        // if found
+        if (Found == true)
+        {
+            // display the values of the properties in the form
+            txtAddress.Text = AnOrder.CustomerAddress;
+            drpPaymentMethod.SelectedValue = AnOrder.PaymentMethod;
+            txtAmount.Text = AnOrder.Amount.ToString();
+            txtDateOrdered.Text = AnOrder.DateOrdered.ToString();
+            chkPaid.Checked = AnOrder.Paid; 
+        }
+    }
 }
