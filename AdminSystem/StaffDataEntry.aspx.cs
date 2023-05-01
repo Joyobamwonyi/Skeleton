@@ -63,7 +63,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         //find the record
         Found = AnStaff.Find(StaffNo);
         //if found
-        if (Found == true) ;
+        if (Found == true) 
         {
             //display the values of the properties in the form
             txtStaffNo.Text = AnStaff.StaffNo.ToString(); ;

@@ -28,7 +28,7 @@
         </p>
         <asp:CheckBox ID="chkActive" runat="server" style="z-index: 1; left: 13px; top: 198px; position: absolute" Text="Save payment details" />
         <p>
-            <asp:Button ID="btnPay" runat="server" OnClick="Button1_Click1" style="z-index: 1; left: 19px; top: 258px; position: absolute" Text="Pay Now" />
+            <asp:Button ID="btnPay" runat="server" OnClick="Button1_Click" style="z-index: 1; left: 19px; top: 258px; position: absolute" Text="Pay Now" />
         </p>
         <asp:Label ID="lblError" runat="server" style="z-index: 1; left: 10px; top: 224px; position: absolute" Text="lbError"></asp:Label>
     </form>

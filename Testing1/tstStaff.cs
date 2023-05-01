@@ -552,7 +552,7 @@ namespace Testing1
             DateTime TestDate;
             //set the date totodays date
             TestDate = DateTime.Now.Date;
-            TestDate = TestDate;
+            
             //convert the date variable to a string variable
             string Birthday = TestDate.ToString();
             //invoke the method
