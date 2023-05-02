@@ -19,21 +19,40 @@ public partial class _1_DataEntry : System.Web.UI.Page
         clsOrder AnOrder = new clsOrder();
 
         // capture the customer address
-        AnOrder.CustomerAddress = txtAddress.Text;
+        string CustomerAddress = txtAddress.Text;
         // capture the payment method
-        AnOrder.PaymentMethod = drpPaymentMethod.SelectedValue;
+        string PaymentMethod = drpPaymentMethod.SelectedValue;
         // capture the Amount
-        AnOrder.Amount = Convert.ToDecimal(txtAmount.Text);
+        string Amount = txtAmount.Text;
         // capture the order date
-        AnOrder.DateOrdered = Convert.ToDateTime(txtDateOrdered.Text);
-        // capture the payment method
-        AnOrder.Paid = chkPaid.Checked;
-        
-        // store the address in the session object
-        Session["AnOrder"] = AnOrder;
+        string DateOrdered = txtDateOrdered.Text;
 
-        // navigate to the viewer page
-        Response.Redirect("OrderViewer.aspx");
+        String Error = "";
+
+        // validate the data
+        Error = AnOrder.Valid(CustomerAddress, PaymentMethod, Amount, DateOrdered);
+
+        if (Error == "")
+        {
+            // capture the customer address
+            AnOrder.CustomerAddress = txtAddress.Text;
+            // capture the payment method
+            AnOrder.PaymentMethod = drpPaymentMethod.SelectedValue;
+            // capture the Amount
+            AnOrder.Amount = Convert.ToDecimal(txtAmount.Text);
+            // capture the order date
+            AnOrder.DateOrdered = Convert.ToDateTime(txtDateOrdered.Text);
+
+            // store the order in the session object
+            Session["AnOrder"] = AnOrder;
+            // navigate to the viewer page
+            Response.Redirect("OrderViewer.aspx");
+        }   
+        else
+        {
+            // display the error message
+            lblError.Text = Error;
+        }
     }
 
     protected void chkPaid_CheckedChanged(object sender, EventArgs e)

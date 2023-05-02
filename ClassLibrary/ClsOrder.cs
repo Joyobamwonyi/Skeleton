@@ -117,7 +117,7 @@ namespace ClassLibrary
             if (CustomerAddress.Length < 5)
             {
                 // record the error
-                Error = Error + "The Customer Address may not be blank or less than 5 characters: ";
+                Error = Error + "The Customer Address may not be blank or less than 5 characters : ";
             }
             // if customer address is greater than 50 characters
             if (CustomerAddress.Length > 50)
@@ -140,7 +140,7 @@ namespace ClassLibrary
                 if (DateTemp > DateTime.Now.Date)
                 {
                     // record the error
-                    Error = Error + "The date cannot be in the future";
+                    Error = Error + "The date cannot be in the future : ";
                 }
             }
             catch
@@ -161,27 +161,27 @@ namespace ClassLibrary
                 if (Amount.Length == 0)
                 {
                     // record the error
-                    Error = Error + "The amount cannot be blank : ";
+                    Error = Error + "The Amount field cannot be blank : ";
                 }
                 // check to see if the amount is equal to 0
                 if (Convert.ToDecimal(Amount) == 0)
                 {
                     // record the error
-                    Error = Error + "This field does not accept a zero : ";
+                    Error = Error + "Amount field does not accept a zero : ";
                 }
 
                 // check if amount is less than zero
                 if (Convert.ToDecimal(Amount) < 0)
                 {
                     // record the error
-                    Error = Error + "This field does not accept negative amounts : ";
+                    Error = Error + "The Amount should be greater than zero : ";
                 }
 
                 // check if amount is larger than 1000000
                 if (Convert.ToDecimal(Amount) > 1000000)
                 {
                     // record the error
-                    Error = Error + "Amount cannot be larger than 1000000: ";
+                    Error = Error + "Amount cannot be larger than 1000000 ";
                 }
             }
             catch
