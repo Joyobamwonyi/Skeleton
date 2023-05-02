@@ -108,5 +108,91 @@ namespace ClassLibrary
             // always return true
             return true;
         }
+
+        public string Valid(string CustomerAddress, string PaymentMethod, string Amount, string DateOrdered)
+        {
+            // create a string variable to store the error
+            String Error = "";
+            // if the Customer Address is blank
+            if (CustomerAddress.Length < 5)
+            {
+                // record the error
+                Error = Error + "The Customer Address may not be blank or less than 5 characters: ";
+            }
+            // if customer address is greater than 50 characters
+            if (CustomerAddress.Length > 50)
+            {
+                // record the error
+                Error = Error + "The Customer Address must be 50 characters long or less : ";
+            }
+
+            try
+            {
+
+                // copy the dateOrdered value to the DateTemp variable
+                DateTime DateTemp = Convert.ToDateTime(DateOrdered);
+                if (DateTemp < DateTime.Now.Date)
+                {
+                    // record the error
+                    Error = Error + "The date connot be in the past : ";
+                }
+                // check to see if the date is greater than today's date
+                if (DateTemp > DateTime.Now.Date)
+                {
+                    // record the error
+                    Error = Error + "The date cannot be in the future";
+                }
+            }
+            catch
+            {
+                // record the error
+                Error = Error + "The date was not a valid date : ";
+            }
+
+            if (PaymentMethod.Length == 1)
+            {
+                // record the error
+                Error = Error + "Plese select a payment method : ";
+            }
+
+
+            try
+            {
+                if (Amount.Length == 0)
+                {
+                    // record the error
+                    Error = Error + "The amount cannot be blank : ";
+                }
+                // check to see if the amount is equal to 0
+                if (Convert.ToDecimal(Amount) == 0)
+                {
+                    // record the error
+                    Error = Error + "This field does not accept a zero : ";
+                }
+
+                // check if amount is less than zero
+                if (Convert.ToDecimal(Amount) < 0)
+                {
+                    // record the error
+                    Error = Error + "This field does not accept negative amounts : ";
+                }
+
+                // check if amount is larger than 1000000
+                if (Convert.ToDecimal(Amount) > 1000000)
+                {
+                    // record the error
+                    Error = Error + "Amount cannot be larger than 1000000: ";
+                }
+            }
+            catch
+            {
+                // record the error for invalid amount
+                Error = Error + "Please enter a valid amount : ";
+            }
+
+
+            // return any error messages
+            return Error;
+        }
     }
 }
