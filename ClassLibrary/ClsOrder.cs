@@ -24,6 +24,18 @@ namespace ClassLibrary
                 mDateOrdered = value;
             }
         }
+
+        public Int32 OrderID
+        {
+            get
+            {
+                return mOrderID;
+            }
+            set
+            {
+                mOrderID = value;
+            }
+        }
         public string CustomerAddress { 
             get
             {
