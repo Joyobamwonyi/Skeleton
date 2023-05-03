@@ -89,7 +89,7 @@ namespace ClassLibrary
             DB.AddParameter("@Amount", mThisOrder.Amount);
             DB.AddParameter("@DateOrdered", mThisOrder.DateOrdered);
             DB.AddParameter("@Paid", mThisOrder.Paid);
-            // return the pk of the new record
+            // execute the update procedure
             DB.Execute("sproc_tblOrder_Update");
         }
 
