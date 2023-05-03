@@ -17,7 +17,7 @@
             <asp:Button ID="btnDelete" runat="server" OnClick="btnDelete_Click" Text="Delete" />
         </p>
         <p>
-            <asp:Label ID="lblCustomerAddress" runat="server" Text="Enter a post code"></asp:Label>
+            <asp:Label ID="lblCustomerAddress" runat="server" Text="Enter a Customer Address"></asp:Label>
             <asp:TextBox ID="txtFilter" runat="server"></asp:TextBox>
         </p>
         <p>
