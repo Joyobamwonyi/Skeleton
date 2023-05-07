@@ -100,6 +100,9 @@ namespace ClassLibrary
                 mSurname = value;
             }
         }
+
+        public object TestItem { get; set; }
+
         public bool Find(int StaffNo)
         {
             //create an instance of the data connection

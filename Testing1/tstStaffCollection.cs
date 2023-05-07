@@ -14,16 +14,16 @@ namespace Testing1
         public void InstanceOK()
         {
             //create an instance of the class we want to create
-            clsStaffCollection AnStaff = new clsStaffCollection();
+            clsStaffCollection AllStaffs = new clsStaffCollection();
             //test to see that it exists
-            Assert.IsNotNull(AnStaff);
+            Assert.IsNotNull(AllStaffs);
         }
 
         [TestMethod]
         public void StaffListOK()
         {
             //create an instance of the class we want to create
-            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaffCollection AllStaffs = new clsStaffCollection();
             //create some test data to assign to the property
             //in this case the data needs to be a list of objects
             List<clsStaff> TestList = new List<clsStaff>();
@@ -40,16 +40,16 @@ namespace Testing1
             //add the item to the test list
             TestList.Add(TestItem);
             //assign the data to the property
-            AllStaff.StaffList = TestList;
+            AllStaffs.StaffList = TestList;
             //test to see that the two values are the same
-            Assert.AreEqual(AllStaff.StaffList, TestList);
+            Assert.AreEqual(AllStaffs.StaffList, TestList);
         }
 
         [TestMethod]
         public void ThisStaffPropertyOK()
         {
             //create an instance of the class we want to create
-            clsStaffCollection AllStaff = new clsStaffCollection();
+            clsStaffCollection AllStaffs = new clsStaffCollection();
             //create some test data to assign to the property
             clsStaff TestStaff = new clsStaff();
             //set the properties of the test object
@@ -60,9 +60,9 @@ namespace Testing1
             TestStaff.FirstName = "Jenny";
             TestStaff.Surname = "Blue";
             //assign the data to the property
-            AllStaff.ThisStaff = TestStaff;
+            AllStaffs.ThisStaff = TestStaff;
             //test to see that the two values are the same
-            Assert.AreEqual(AllStaff.ThisStaff, TestStaff);
+            Assert.AreEqual(AllStaffs.ThisStaff, TestStaff);
         }
 
         [TestMethod]
@@ -110,13 +110,13 @@ namespace Testing1
             //set ThisStaff to the test data
             AllStaffs.ThisStaff = TestItem;
             //add the record
-            PrimaryKey - AllStaffs.Add();
+            PrimaryKey = AllStaffs.Add();
             //set the primary key of the test data
-            TestItem.StaffNo - PrimaryKey;
+            TestItem.StaffNo = PrimaryKey;
             //find the record
             AllStaffs.ThisStaff.Find(PrimaryKey);
             //test to see that the two values are the same
-            Assert.AreEqual(AllStaffs.ThisStaff.TestItem);
+            Assert.AreEqual(AllStaffs.ThisStaff,TestItem);
         }
 
         [TestMethod]
@@ -175,17 +175,6 @@ namespace Testing1
             Boolean Found = AllStaffs.ThisStaff.Find(PrimaryKey);
             //test to see that the record was not found
             Assert.IsFalse(Found);
-        }
-
-        public void Delete()
-        {
-            //deletes the record pointed out by thisStaff
-            //connect to the database
-            clsDataConnection DB = new clsDataConnection();
-            //set the paramaters for the stored procedure
-            DB.AddParameter("@StaffNo", mThisStaff.StaffNo);
-            //execute the stored procedure
-            DB.Execute("sproc_tblStaff_Delete");
         }
 
         [TestMethod]
