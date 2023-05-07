@@ -36,19 +36,8 @@ namespace ClassLibrary
                 //we shall worry about this later
             }
         }
-        public List <clsStaff> StaffList
-        {
-            get
-            {
-                //return the private data
-                return mStaffList;
-            }
-            set
-            {
-                //set the private data
-                mStaffList = value;
-            }
-        }
+
+        public clsStaff ThisStaff { get; set; }
 
         public int Add()
         {
@@ -91,30 +80,6 @@ namespace ClassLibrary
             PopulateArray(DB);
         }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            //if this is the first time the page is displayed
-            if (IsPostBack == false)
-            {
-                //updete the list box
-                DisplayStaffs();
-            }
-        }
-
-        void DiplayStaffs()
-        {
-            //create an instance of the Address collection
-            clsStaffCollection AnStaff = new clsStaffCollection();
-            //set the data source to list of staffs in the collection
-            lstStaffList.DataSource = AnStaff.StaffList;
-            //set the name of the primary key
-            lstStaffList.DataValueField = "StaffNo";
-            //set the data field to display
-            lstStaffList.DataTextField = "Salary";
-            //blind the data to the list
-            lstStaffList.DataBlind();
-        }
-
         public void ReportBySalary(string Salary)
         {
             //filter the records based on a full or partial Salary
@@ -149,13 +114,24 @@ namespace ClassLibrary
                 AnStaff.StaffNo = Convert.ToInt32(DB.DataTable.Rows[Index]["StaffNo"]);
                 AnStaff.Salary = Convert.ToInt32(DB.DataTable.Rows[Index]["Salary"]);
                 AnStaff.Birthday = Convert.ToDateTime(DB.DataTable.Rows[Index]["Birthday"]);
-                AnStaff.FirstName = Convert.ToString(DB.DataTable.Rows[Index]["First Name"]);
+                AnStaff.FirstName = Convert.ToString(DB.DataTable.Rows[Index]["FirstName"]);
                 AnStaff.Surname = Convert.ToString(DB.DataTable.Rows[Index]["Surname"]);
                 //add the record to the private data member
                 mStaffList.Add(AnStaff);
                 //point at the next record
                 Index++;
             }
+        }
+
+        public void Delete()
+        {
+            //deletes the record pointed out by thisStaff
+            //connect to the database
+            clsDataConnection DB = new clsDataConnection();
+            //set the paramaters for the stored procedure
+            DB.AddParameter("@StaffNo", mThisStaff.StaffNo);
+            //execute the stored procedure
+            DB.Execute("sproc_tblStaff_Delete");
         }
     }
 }

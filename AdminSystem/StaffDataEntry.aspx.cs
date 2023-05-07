@@ -20,13 +20,13 @@ public partial class _1_DataEntry : System.Web.UI.Page
             if (StaffNo != -1)
             {
                 //display the current data for the record
-                DisplayStaff();
+                //DisplayStaff();
             }
         }
 
     }
 
-    void DisplayStaff()
+    /*void DisplayStaff()
     {
         //create an instance of the staff
         clsStaffCollection StaffBook = new clsStaffCollection();
@@ -40,7 +40,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
         txtSalary.Text = StaffBook.ThisStaff.Salary.ToString(); ;
         chkAvailable.Checked = StaffBook.ThisStaff.Available;
 
-    }
+    } */
 
     protected void btnOK_Click(object sender, EventArgs e)
     {
@@ -73,7 +73,7 @@ public partial class _1_DataEntry : System.Web.UI.Page
             //capture available
             AnStaff.Available = chkAvailable.Checked;
             //create a new instance of the staff collection
-            clsStaffCollection StffList = new clsStaffCollection();
+            clsStaffCollection StaffList = new clsStaffCollection();
 
             //if this is a new record i.e. StaffNo = -1 then add the data
             if (StaffNo == -1)

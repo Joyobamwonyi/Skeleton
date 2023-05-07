@@ -24,20 +24,20 @@ public partial class _1_List : System.Web.UI.Page
         //create an instance of the Staff collection
         clsStaffCollection Staffs = new clsStaffCollection();
         //set the data source to list of staff in collection
-        lstStaffList.DataSource = Staffs.StaffList;
+        lstStaffs.DataSource = Staffs.StaffList;
         //set the name of the primary key
-        lstStaffList.DataValueField = "StaffNo";
+        lstStaffs.DataValueField = "StaffNo";
         //set the data field to the display
-        lstStaffList.DataTextField = "Salary";
+        lstStaffs.DataTextField = "Salary";
         //blind the data to the list
-        lstStaffList.DataBind();
+        lstStaffs.DataBind();
 
     }
 
     protected void btnAdd_Click(object sender, EventArgs e)
     {
         //store -1 into the session object to indicate this is a new record
-        Session{"StaffNo"} = -1;
+        Session["StaffNo"] = -1;
         //redirect to the data entry page
         Response.Redirect("StaffDataEntry.aspx");
     }
@@ -47,12 +47,12 @@ public partial class _1_List : System.Web.UI.Page
         //var to store the primary key value of the record to be edited
         Int32 StaffNo;
         //if a record has been selected from the list
-        if (lstStaffList.SelectedIndex != -1)
+        if (lstStaffs.SelectedIndex != -1)
         {
             //get the primary key value of the record edit
-            StaffNo = Convert.ToInt32(lstStaffList.SelectedValue);
+            StaffNo = Convert.ToInt32(lstStaffs.SelectedValue);
             //store the data in the session object
-            Session{ "StaffNo"} = StaffNo;
+            Session["StaffNo"] = StaffNo;
         //redirect to the edit page
         Response.Redirect("StaffDataEntry.aspx");
         }
@@ -67,12 +67,12 @@ public partial class _1_List : System.Web.UI.Page
         // var to store the primary key value of the record to be deleted
         Int32 StaffNo;
         //if a record has been selected from the list
-        if (lstStaffList.SelectedIndex != -1)
+        if (lstStaffs.SelectedIndex != -1)
         {
             //get the primary key value of the record delete
             StaffNo = Convert.ToInt32(lstStaffs.SelectedValue);
             //store the data in the session object
-            Session{"StaffNo"} = StaffNo;
+            Session["StaffNo"] = StaffNo;
             //redirect to the delete page
             Response.Redirect("StaffConfirmDelete.aspx");
         }
@@ -87,14 +87,14 @@ public partial class _1_List : System.Web.UI.Page
     {
         //create an instance of the Staff collection
         clsStaffCollection Staffs = new clsStaffCollection();
-        Staffs.ReportBySalary(txtFilter.Text)
-        lstStaffList.DataSource = Staffs.StaffList;
+        Staffs.ReportBySalary(txtFilter.Text);
+        lstStaffs.DataSource = Staffs.StaffList;
         //set the name of the primary key
-        lstStaffList.DataValueField = "StaffNo";
+        lstStaffs.DataValueField = "StaffNo";
         //set the name of the data field to the display
-        lstStaffList.DataTextField = "Salary";
+        lstStaffs.DataTextField = "Salary";
         //blind the data to the list
-        lstStaffList.DataBind();
+        lstStaffs.DataBind();
     }
 
     protected void btnClear_Click(object sender, EventArgs e)
@@ -104,12 +104,12 @@ public partial class _1_List : System.Web.UI.Page
         Staffs.ReportBySalary("");
         //clear my existing filter to tidy up the interface
         txtFilter.Text = "";
-        lstStaffList.DataSource = Staffs.StaffList;
+        lstStaffs.DataSource = Staffs.StaffList;
         //set the name of the primary key
-        lstStaffList.DataValueField = "StaffNo";
+        lstStaffs.DataValueField = "StaffNo";
         //set the data field to the display
-        lstStaffList.DataTextField = "Salary";
+        lstStaffs.DataTextField = "Salary";
         //blind the data to the list
-        lstStaffList.DataBind();
+        lstStaffs.DataBind();
     }
 }
