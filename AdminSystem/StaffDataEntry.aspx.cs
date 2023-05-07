@@ -8,8 +8,37 @@ using ClassLibrary;
 
 public partial class _1_DataEntry : System.Web.UI.Page
 {
+    //variable to store the primary key with page level scope
+    Int32 StaffNo;
     protected void Page_Load(object sender, EventArgs e)
     {
+        //get the number of the staff to be processed
+        StaffNo = Convert.ToInt32(Session["StaffNo"]);
+        if (IsPostBack == false);
+        {
+            //if this is not a new record
+            if (StaffNo != -1)
+            {
+                //display the current data for the record
+                DisplayStaff();
+            }
+        }
+
+    }
+
+    void DisplayStaff()
+    {
+        //create an instance of the staff
+        clsStaffCollection StaffBook = new clsStaffCollection();
+        //find the record to update
+        StaffBook.ThisStaff.Find(StaffNo);
+        //display the data for this record
+        txtStaffNo.Text = StaffBook.ThisStaff.StaffNo.ToString(); ;
+        txtFirstName.Text = StaffBook.ThisStaff.FirstName;
+        txtSurname.Text = StaffBook.ThisStaff.Surname;
+        txtBirthday.Text = StaffBook.ThisStaff.Birthday.ToString();
+        txtSalary.Text = StaffBook.ThisStaff.Salary.ToString(); ;
+        chkAvailable.Checked = StaffBook.ThisStaff.Available;
 
     }
 
@@ -31,6 +60,8 @@ public partial class _1_DataEntry : System.Web.UI.Page
         Error = AnStaff.Valid(FirstName, Surname, Birthday, Salary);
         if (Error == "")
         {
+            //capture the Staff number
+            AnStaff.StaffNo = StaffNo;
             //capture the first name
             AnStaff.FirstName = FirstName;
             //capture the surname
@@ -39,10 +70,31 @@ public partial class _1_DataEntry : System.Web.UI.Page
             AnStaff.Birthday = Convert.ToDateTime(Birthday);
             //capture the salary
             AnStaff.Salary = Convert.ToInt32(Salary);
-            //store the staff in the session object
-            Session["AnStaff"] = AnStaff;
-            //redirect to the viewer page
-            Response.Write("StaffViewer.aspx");
+            //capture available
+            AnStaff.Available = chkAvailable.Checked;
+            //create a new instance of the staff collection
+            clsStaffCollection StffList = new clsStaffCollection();
+
+            //if this is a new record i.e. StaffNo = -1 then add the data
+            if (StaffNo == -1)
+            {
+            // set the ThisStaff property
+            StaffList.ThisStaff = AnStaff;
+            //add the new record
+            StaffList.Add();
+            }
+            //otherwise it must be an update
+            else
+            {
+                //find the record to update
+                StaffList.ThisStaff.Find(StaffNo);
+                //set the ThisStaff property
+                StaffList.ThisStaff = AnStaff;
+                //update the record
+                StaffList.Update();
+            }
+            //redirect to the the listpage
+            Response.Redirect("StaffList.aspx");
         }
         else
         {
